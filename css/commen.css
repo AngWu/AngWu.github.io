@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+* {font-family:'Helvetica Neue',Arial,'Hiragino Sans GB',sans-serif;}
+.w { width:1210px; margin:0 auto; }	
+body { border-top:7px solid #3498db; }
+.wrapper { width:100%; }
+.header { height:150px; }
+.nav { height:30px; margin:20px 0 0 100px; }
+.nav li { height:30px; margin-right:20px; display:inline-block; float:left; }
+.nav li a { color:#000; text-decoration:none;  font-weight:bolder;}
+.nav li a:hover { color:#3498db; }
+#nav-now { color:#3498db; } /*这里涉及到一个选择器的权重问题（id最高），如果不使用id，将不能覆盖前面使用子选择器修饰的a标签*/
+

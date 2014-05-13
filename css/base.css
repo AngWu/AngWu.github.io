@@ -1,0 +1,93 @@
+@charset "utf-8";
+/* CSS Document */
+/*CSS reset*/
+body,div,dl,dd,dt,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {
+	margin:0;
+	padding:0;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+fieldset,img {
+	border:0;
+}
+address,caption,cite,code,dfn,em,strong,th,var {
+	font-style:normal;
+	font-weight:normal;
+} /*cite 标签用于表示对某个参考文献的引用，若有在线版本，可以用a标签链接过去*/
+ol,ul {
+	list-style:none;
+}
+caption,th {
+	text-align:left;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-size:100%;
+	font-weight:normal;
+}
+q:before,q:after {
+	content:'';
+}
+abbr,acronym {
+	border:0;
+}
+
+::selection{
+	color : white;
+	background-color: #3498db;
+}
+::-moz-selection{
+	color : white;
+	background-color: #3498db;
+}
+
+/*文字排版*/
+.f12{ font-size:12px; }
+.f13{ font-size:13px; }
+.f14{ font-size:14px; }
+.f16{ font-size:16px; }
+.f20{ font-size:20px; }
+.fb{ font-weight:bold; }
+.fn{ font-weight:normal; }
+.t2{ text-indent:2em; }  /*缩进2个字*/
+.lh150 { line-height:150%; }
+.lh180 { line-height:180%; }
+.lh200 { line-height:200%; }
+.unl { text-decoration:underline; }
+.no_unl { text-decoration:none; }
+
+/*定位*/
+.tl { text-align:left; }
+.tc { text-align:center; }
+.tr { text-align:right;}
+.bc { margin-left:auto; margin-right:auto; }
+.fl {float:left; display:inline;}
+.fr {float:right; display:inline;}
+.cb {clear:both;}
+.cr {clear:right;}
+.cl {clear:left;}
+
+/*未经亲自测验*/
+.clearfix:after {
+	content:'.';
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}    /*使用了after这个伪对象，它将在应用clearfix的元素的结尾添加content中的内容。在这里添加了一个句号"."，并且把它的display设置成block；高度设为0；clear设为both；visibility设为隐藏。这样就达到了撑开容器的目的啦*/
+.clearfix { display: inline-block; }
+/* Hides from IE-mac \*/
+*html .clearfix {height:1%;}
+.clearfix { display: block; }
+/* End hide from IE-mac */
+
+.vm {vertical-align:middle;} /*垂直居中*/
+.pr {position:relative;}
+.pa {position:absolute;}
+.abs-right {position:absolute; right:0;}
+.zoom {zoom:1;}
+.hidden {visibility:hidden;}
+.none {display:none;}
+
+
