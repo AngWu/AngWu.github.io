@@ -2,6 +2,7 @@
 /* CSS Document */
 * {font-family:'Helvetica Neue',Arial,'Hiragino Sans GB',sans-serif;}
 .w { width:1210px; margin:0 auto; }	
+.ml100 {margin-left:100px;}
 body { border-top:7px solid #3498db; }
 .wrapper { width:100%; }
 .header { height:150px; }
@@ -11,3 +12,41 @@ body { border-top:7px solid #3498db; }
 .nav li a:hover { color:#3498db; }
 #nav-now { color:#3498db; } /*这里涉及到一个选择器的权重问题（id最高），如果不使用id，将不能覆盖前面使用子选择器修饰的a标签*/
 
+/*头像部分的css*/
+.note-me { display:inline-block; float:left; padding:0 30px 0 0; position:relative; width:230px;}
+.note-me h1 { font-size:24px; font-weight:bolder; text-align:center;}
+.border-out { position:absolute; top:35px; left:0; border-radius: 50%; border: 5px solid #f8f8f8; height:200px; width:200px; }
+.border-in { position:absolute; top:10px; left:10px; height:160px; width:160px; border:10px solid #00a2ff; border-radius:50%; text-align:center; }
+.note-head-pic { position:absolute; top:38px; left:38px; border:2px solid #999; border-radius:50%; height:120px; width:120px;}
+
+@keyframes circles{
+	0% { transform:scale(0.55); opacity:1; }
+	10% { transform:scale(0.7); opacity:0.9; }
+	30% { transform:scale(0.8); opacity:0.7; }
+	100% { transform:scale(1.1); opacity:0; }
+}
+@-webkit-keyframes circles {
+	0% { -webkit-transform:scale(0.55); opacity:1; }
+	10% { -webkit-transform:scale(0.7); opacity:0.9; }
+	30% { -webkit-transform:scale(0.8); opacity:0.7; }
+	100% { -webkit-transform:scale(1.1); opacity:0; }
+}
+@-moz-keyframes circles {
+	0% { -moz-transform:scale(0.55); opacity:1; }
+	10% { -moz-transform:scale(0.7); opacity:0.9; }
+	30% { -moz-transform:scale(0.8); opacity:0.7; }
+	100% { -moz-transform:scale(1.1); opacity:0; }
+}
+.border-in {
+	animation:circles 5s;
+	-webkit-animation:circles 5s;
+	-moz-animation:circles 5s;
+	animation-timing-function:linear;
+	-webkit-animation-timing-function:linear;
+	-moz-animation-timing-function:linear;
+	animation-iteration-count:infinite;
+	-webkit-animation-iteration-count:infinite;
+	-moz-animation-iteration-count:infinite;
+}
+/*底部*/
+.foot { margin-top:150px; border-top:1px solid #999; height:50px; line-height:50px; width:600px; text-align:center; font-style:oblique; font-size:14px; color:#999;}
