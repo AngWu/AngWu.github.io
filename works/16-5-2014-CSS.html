@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" href="../css/base.css" rel="stylesheet"  />
+<link type="text/css" href="../css/commen.css" rel="stylesheet"  />
+<title>css三列布局</title>
+<style type="text/css">
+	body { text-align:center; } /* 解决老版ie margin:0 auto;不剧中 */
+	.title {text-align:left; font-size:16px; font-weight:bold; }
+	.content { width:76.8%; height:560px; margin:0 auto; max-width:125em; min-width:62em;} /*设置最大和最小缩放宽度，防止变形*/
+	.content,.primary,.secondary {border:1px dashed #000;}
+	.content .primary { width:70%; float:right; display:inline; height:500px; margin:1% 1% 0 1%; }
+	.content .secondary { width:25%; float:left; display:inline; height:500px; margin:1% 0 0 1%; }
+	.content .primary .primary { width:59%; float:left; display:inline; background:#CCC; height:450px; }
+	.content .primary .secondary { width:34%;  float:right; display:inline; background:#CCC; height:450px; margin-right:1%; }
+</style>
+</head>
+
+<body>
+	<h1>CSS浮动三列布局--将主要内容标签靠前放置（百分比宽度）</h1>
+	<div class="content">
+    	<h2 class="title">.content</h2>
+    	
+        <div class="primary">
+        	
+            <h3 class="title">.primary</h3>
+            
+            <div class="primary">
+            	<h4 class="title">.primary-primary</h4>
+            </div>
+            
+            <div class="secondary">
+            	<h4 class="title">.primary-secondary</h4>
+            </div>
+        </div>
+        
+        <div class="secondary">
+        	<h3 class="title">.secondary</h3>
+        </div>
+    </div>
+</body>
+</html>

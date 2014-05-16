@@ -33,6 +33,14 @@ abbr,acronym {
 	border:0;
 }
 
+code {
+	font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+	border: 1px solid #ddd;
+	background-color: #eef;
+	font-size: 85%;
+	padding: 0 .2em;
+}
+
 ::selection{
 	color : white;
 	background-color: #3498db;
