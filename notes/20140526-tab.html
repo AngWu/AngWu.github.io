@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>站在巨人的肩膀上</title>
+<style type="text/css">
+	* {
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:12px;
+	}
+	ul {
+		list-style:none;
+		margin:0;
+		padding:0;
+	}
+	.box {
+		width:1024px;
+		height:560px;
+		margin:0 auto;
+		border:1px dashed #0000FF;
+		overflow:hidden;
+		position:relative;
+	}
+	#main {
+		width:3080px;
+		height:560px;
+		position:absolute;
+	}
+	.page {
+		padding-top:10px;
+		float:left;
+		width:1024px;
+		height:550px;
+	}
+	.tab-title-ul {
+		height:25px;
+		z-index:2;
+	}
+	.tab-title {
+		border-left:1px solid #CCC;
+		border-top:1px solid #CCC;
+		border-right:1px solid #CCC;
+		background:#FFF;
+		float:left;
+		margin-left:5px;
+		padding:5px;
+		width:50px;
+		display:inline-block;
+	}
+	.tab-content-ul {
+		height:300px;
+		width:500px;
+		clear:both;
+		overflow:hidden;
+		border:1px solid #CCC;
+		margin-left:5px;
+		margin-top:-1px;
+	}
+	.tab-content {
+		height:300px;
+		width:500px;
+	}
+	.tab-content1 {
+		height:300px;
+		width:500px;
+		display:none;
+	}
+	.show {
+		display:block;
+	}
+	#pointer {
+		width:200px;
+		margin:0 auto;
+	}
+	#pointer li {
+		float:left;
+		cursor:pointer;
+		font-size:14px;
+		font-weight:bold;
+		padding:5px;
+	}
+	.tab-container {
+	  width: 300px;
+	  margin: auto;
+	}
+	
+	input[type="radio"] {
+	  -webkit-appearance: none;
+	  height: 50px;
+	  width: 50px;
+	  outline: none;
+	  margin: 0;
+	  display: block;
+	  float: left;
+	  box-sizing: border-box;
+	  background-color: #ffa08e;
+	  transition: background-color .5s;
+	}
+	input[type="radio"]:hover {
+	  background-color: #ff816b;
+	  transition: background-color .5s;
+	  cursor: pointer;
+	}
+	input[type="radio"]::before {
+	  content: attr(title);
+	  display: block;
+	  position: absolute;
+	  height: 50px;
+	  width: 50px;
+	  z-index: 100;
+	  line-height: 50px;
+	  text-align: center;
+	  color: white;
+	}
+	input[type="radio"]:checked {
+	  background-color: tomato;
+	}
+	input[type="radio"]:checked::after {
+	  content: attr(title);
+	  display: block;
+	  height: 200px;
+	  width: 300px;
+	  background-color: tomato;
+	  top: 50px;
+	  position: relative;
+	  margin: auto;
+	  transition: background-color .5s;
+	  cursor: auto;
+	  text-align: center;
+	  line-height: 200px;
+	  font-size: 40px;
+	  color: white;
+	  text-shadow: 2px 2px #f92600;
+	}
+	input[type="radio"]:checked.first::after {
+	  left: 0px;
+	}
+	input[type="radio"]:checked.second::after {
+	  left: -50px;
+	}
+	input[type="radio"]:checked.third::after {
+	  left: -100px;
+	}
+	input[type="radio"]:checked.fourth::after {
+	  left: -150px;
+	}
+	input[type="radio"]:checked.fifth::after {
+	  left: -200px;
+	}
+	input[type="radio"]:checked.sixth::after {
+	  left: -250px;
+	}
+</style>
+</head>
+
+<body>
+	<h1>tab工具的实现</h1>
+	
+    <div class="box">
+    	<div id="main" style="left:0;">
+        	<div class="page">
+                <h2>第一种方式：利用a标签定位到页面中指定（id）位置，显示内容通过overflow:hidden;遮蔽不显示部分</h2>
+                <dl>
+                    <dt>优点</dt>
+                    <dd>没有javascript，代码较为简洁</dd>
+                    <dt>缺点</dt>
+                    <dd>opera不支持，而且当前激活tab的样式不方便设置，页面有了垂直方向的滚动条点击tab会跳动</dd>
+                </dl>
+                <ul class="tab-title-ul">
+                    <li class="tab-title"><a href="#tab-content1">first</a></li>
+                    <li class="tab-title"><a href="#tab-content2">second</a></li>
+                    <li class="tab-title"><a href="#tab-content3">third</a></li>
+                    <li class="tab-title"><a href="#tab-content4">fourth</a></li>
+                </ul>
+                <ul class="tab-content-ul">
+                    <li class="tab-content" id="tab-content1">1</li>
+                    <li class="tab-content" id="tab-content2">2</li>
+                    <li class="tab-content" id="tab-content3">3</li>
+                    <li class="tab-content" id="tab-content4">4</li>
+                </ul>
+            </div>
+        
+        
+			<div class="page">
+                <h2>第二种方法</h2>
+                <p>为每个标题添加一个函数，控制其对应的内容区域的显示</p>
+                <p>这个应该是用的比较多的一种方法</p>
+                <ul class="tab-title-ul">
+                    <li class="tab-title" onmouseover="setTab(0);">first</li>
+                    <li class="tab-title" onmouseover="setTab(1);">second</li>
+                    <li class="tab-title" onmouseover="setTab(2);">third</li>
+                    <li class="tab-title" onmouseover="setTab(3);">fourth</li>
+                </ul>
+                <ul class="tab-content-ul">
+                    <li class="tab-content1 show" >1</li>
+                    <li class="tab-content1" >2</li>
+                    <li class="tab-content1" >3</li>
+                    <li class="tab-content1" >4</li>
+                </ul>
+                <script type="text/javascript">
+					function setTab(n){
+						var title = document.getElementsByClassName("tab-title");
+						var content = document.getElementsByClassName("tab-content1");
+						for(i=0;i<title.length;i++){
+							title.item(i).className = i==n ? "tab-title":"tab-title";
+							content.item(i).className = i==n ? "tab-content1 show":"tab-content1";
+						}
+					}
+				</script>
+            </div>
+            
+            <div class="page">
+                <h2>第三种方法</h2>
+                <p>运用了属性选择器，将input的点击控件隐藏，并通过:checked伪类修改点击后的样式，通过content: attr(title);添加内容</p>
+                <div class="tab-container">
+                    <input type="radio" name="group" class="first" title="first">
+                    <input type="radio" name="group" class="second" title="second">
+                    <input type="radio" name="group" class="third" title="third">
+                    <input type="radio" name="group" checked class="fourth" title="fourth">
+                    <input type="radio" name="group" class="fifth" title="fifth">
+                    <input type="radio" name="group" class="sixth" title="sixth">
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <ul id="pointer">
+        <li onclick="move(1);">1</li>
+        <li onclick="move(2);">2</li>
+        <li onclick="move(3);">3</li>
+    </ul>
+    
+    <!--网页内容切换-->
+    <script type="text/javascript">
+	/*	
+		t: current time（当前时间）；
+		b: beginning value（初始值）；
+		c: change in value（变化量）；
+		d: duration（持续时间）。
+		n:图片数量
+		index: 当前图片
+		count:滑动计数，取值范围为(n-1)*2，超过后重置为1
+		Time:间隔时间
+	*/
+	var picWidth = 1024;
+    var b=0,c=picWidth,d=140,t=0;
+	var  n=3,index=1,count = 1;
+	var Time = 2000;
+	//滑块，整体ul
+	var slider = document.getElementById("main");
+	
+	//Tween算法，返回及时位移量
+	var Tween = {
+		Quad: {
+			   easeOut: function(t,b,c,d){
+					return -c *(t/=d)*(t-2) + b;
+			   },
+			   easeIn: function(t,b,c,d){
+				   return c*(t/=d)*t + b;
+			   }
+		 }
+    };
+	//点击数字的时候切换到相应图片
+	function move(target){
+		//clearTimeout(autoRun);
+		t=0;
+		b = -parseInt(slider.style.left);
+		if(target > index){
+			c = picWidth*(target-1) - Math.abs(b);
+			moveToLeft();
+		}else if(target < index){
+			b = -b;
+			c =Math.abs(b) -  picWidth*(target-1);
+			moveToRight();
+		}
+		index = target;
+		count = target;
+		//完事儿后复原自动切换
+		//autoRun = setTimeout(run,Time);
+	}
+	//向左移动
+	function moveToLeft(){
+			this.moveto(Math.ceil(-Tween.Quad.easeOut(t,b,c,d)));
+			if(t < d){
+				t++;
+				setTimeout(this.moveToLeft,1);
+			}
+	}
+	//向右移动
+	function moveToRight(){
+			this.moveto(Math.ceil(Tween.Quad.easeOut(t,b,c,d)));
+			if(t < d){
+				t++;
+				setTimeout(this.moveToRight,1);
+			}
+	}
+	
+	function moveto(i){
+		slider.style.left = i +"px";
+	}
+	//自动切换
+	function run(){
+			c = picWidth;
+			t=0;
+			b = -parseInt(slider.style.left);
+			if(index < n & count < n){
+				moveToLeft();
+				index++;
+				count ++;
+			}else{	
+				b= -b;
+				moveToRight();
+				index--;
+				//count取值为1.2.3.4 取1.2向左，取3.4向右
+				if(count < (n-1)*2){
+					count++;
+				}else{
+					count=1;	
+				}
+			}
+		autoRun = setTimeout(run,Time);	
+	}
+	
+	//window.onload = setTimeout(run,Time);
+
+	
+  </script>
+</body>
+</html>
+  
