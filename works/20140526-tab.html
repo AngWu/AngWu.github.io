@@ -184,7 +184,7 @@
 			<div class="page">
                 <h2>第二种方法</h2>
                 <p>为每个标题添加一个函数，控制其对应的内容区域的显示</p>
-                <p>这个应该是用的比较多的一种方法</p>
+                <p>复用性不高，如果同一个页面上需要多个这样的组件，还需要进一步改进代码</p>
                 <ul class="tab-title-ul">
                     <li class="tab-title" onmouseover="setTab(0);">first</li>
                     <li class="tab-title" onmouseover="setTab(1);">second</li>
@@ -212,6 +212,7 @@
             <div class="page">
                 <h2>第三种方法</h2>
                 <p>运用了属性选择器，将input的点击控件隐藏，并通过:checked伪类修改点击后的样式，通过content: attr(title);添加内容</p>
+                <p>这个是借鉴别人的代码，自己暂时还不会写</p>
                 <div class="tab-container">
                     <input type="radio" name="group" class="first" title="first">
                     <input type="radio" name="group" class="second" title="second">

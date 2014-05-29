@@ -1,5 +1,8 @@
 @charset "utf-8";
-/* CSS Document */
+/* CSS Document
+ * Author : Wuqiang
+ * Email : reganwu@foxmail.com
+ */
 * {font-family:'Helvetica Neue',Arial,'Hiragino Sans GB',sans-serif;}
 .w { width:1210px; margin:0 auto; }	
 .ml100 {margin-left:100px;}
@@ -48,5 +51,14 @@ body { border-top:7px solid #3498db; }
 	-webkit-animation-iteration-count:infinite;
 	-moz-animation-iteration-count:infinite;
 }
+
+/*笔记部分的css*/
+.note-cont { height:auto; width:650px; float:left; border-left:1px solid #999; padding-left:50px; }
+.note-date { color:#999; padding-bottom:20px; }
+.home { color:#3498db; font-size:18px; float:right; }
+.title { font-size:24px; font-weight:bolder; padding-bottom:10px; }
+.post { font-size:14px; line-height:150%; }
+.post p { margin-bottom:20px; margin-top:20px; text-indent:2em;} 
+
 /*底部*/
 .foot { margin-top:150px; border-top:1px solid #999; height:50px; line-height:50px; width:600px; text-align:center; font-style:oblique; font-size:14px; color:#999;}
