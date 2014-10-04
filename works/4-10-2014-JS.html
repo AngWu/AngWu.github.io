@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link type="text/css" href="../css/base.css" rel="stylesheet" />
+    <link type="text/css" href="../css/commen.css" rel="stylesheet"  />
+    <link type="text/css" href="../font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+    <title>Javascript 小技巧总结</title>
+</head> 
+<body> 
+	<div class="wrapper">
+        <!-- 头部 -->
+        <div class="header w">
+            <ul class="nav">
+                <li><a href="../index.html">HOME</a></li>
+                <li><a id="nav-now" href="../work.html">WORK</a></li>
+                <li><a href="../note.html">NOTE</a></li>
+                <li><a href="../about.html">ABOUT</a></li>
+            </ul>
+        </div>
+        
+        <!-- 主要内容 -->
+        <div class="main w clearfix">
+            <!-- 左边内容 -->
+            <div class="note-me ml100">
+                <h1>Hola.</h1>
+                <div class="border-out">
+                    <div class="border-in">&nbsp;</div>
+                        <img class="note-head-pic" src="../imgs/logo.png" />
+                </div>
+            </div>
+            
+            <!--右边内容-->
+            <div class="note-cont">
+                <p class="note-date">Oct 4, 2014 <a href="/"><i class="home fa fa-home"></i></a></p>
+                
+                <h1 class="title">Javascript 小技巧总结</h1>
+                <!--正文开始-->
+                <div class="post">
+                    <h2>一、通用添加事件监听器</h2>
+                    <div class="code-block">
+                        <PRE>
+            function addEvent(element, type, fn){
+                if(element.attachEvent){                    //ie
+                    element.attachEvent('on'+type, fn);
+                    return;
+                }
+                if(element.addEventListener){                //ff 
+                    element.addEventListener(type, fn, false);
+                }
+            }
+                        </PRE>
+                    </div>
+
+                    <h2>二、取消浏览器默认行为</h2>
+                    <div class="code-block">
+                        <PRE>
+            //例如取消点击链接的时候导航到href里定义的地址 这个默认行为
+            function myPreventDefault(e) {
+                e = e || window.event;          //window.event 是ie的 Event对象实现方法
+                
+                if(e.preventDefault) {
+                    e.preventDefault();
+                } else {
+                    e.returnValue = false;  // ie
+                }
+            }
+                        </PRE>
+                    </div>
+
+                    <h2>三、阻止事件冒泡</h2>
+                    <div class="code-block">
+                        <PRE>
+            function myStopPropagation() {
+                e = e || window.event;
+
+                if(e.stopPropagation) {
+                    e.stopPropagation();
+                } else {
+                    e.cancelBubble = true;
+                }
+            }
+                        </PRE>
+                    </div>
+                    使用示例：<br />
+                    <code>
+                        addEvent(document.getElementsByTagName('p')[0], 'click', myStopPropagation);
+                    </code>
+
+                    <h2>四、事件委托</h2>
+                    <div class="code-block">
+                        <PRE>
+            // 例如对很多个 li 绑定相同的事件监听 （ul 的 id="list"）
+            var list = document.getElementById("list");
+            
+            list.onclick = function(){
+                e = e || window.event;
+                var targetNode = e.target || e.srcElement;
+
+                //点击的元素是li
+                if(targetNode.nodeName.toLowerCase == "li"){
+                    //..do something
+                    alert("li" + target.getAttribute("id") + " was clicked");
+                }
+            }
+                        </PRE>
+                    </div>
+                </div>
+                <!--正文结束-->
+                
+                <!-- 多说评论框 start -->
+                <div class="ds-thread" data-thread-key="1" data-title="Javascript 小技巧总结" data-url="http://angwu.github.io/notes/4-10-2014-JS.html"></div>
+                <!-- 多说评论框 end -->
+                <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+                <script type="text/javascript">
+                    var duoshuoQuery = {short_name:"ang-work"};
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';ds.async = true;
+                        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] 
+                         || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- 多说公共JS代码 end -->
+                
+                <div class="foot">
+                    &copy;WuQiang,2014 &nbsp; Keep Going...<i class="fa fa-paper-plane"></i>
+                </div>
+            </div>
+        
+        </div>
+
+    </div>
+
+</body> 
+</html> 

@@ -76,7 +76,6 @@ code {
 .cr {clear:right;}
 .cl {clear:left;}
 
-/*未经亲自测验*/
 .clearfix:after {
 	content:'.';
 	display:block;
