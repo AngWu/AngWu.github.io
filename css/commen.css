@@ -60,7 +60,9 @@ body { border-top:7px solid #3498db; }
 .post { font-size:14px; line-height:150%; }
 .post p { margin-bottom:20px; margin-top:20px; text-indent:2em;} 
 
-.code-block { margin-left: 5px; margin-bottom: 10px; border-left: 2px solid #40AA53; font-family: Monaco,Menlo,Consolas,"Courier New",monospace; font-size: 12px;}
+.h2{ font-family: 'Microsoft YaHei'; font-weight: bold; }
+
+.code-block { margin-left: 5px; margin-bottom: 10px; border:1px solid #939393; padding: 10px 21px; font-family: Monaco,Menlo,Consolas,"Courier New",monospace; font-size: 14px;}
 
 /*底部*/
 .foot { margin-top:150px; border-top:1px solid #999; height:50px; line-height:50px; width:600px; text-align:center; font-style:oblique; font-size:14px; color:#999;}

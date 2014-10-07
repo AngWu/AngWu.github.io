@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link type="text/css" href="../css/base.css" rel="stylesheet" />
+    <link type="text/css" href="../css/commen.css" rel="stylesheet"  />
+    <link type="text/css" href="../font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+    <title>Javascript 单例模式</title>
+</head> 
+<body>
+	<div class="wrapper">
+        <!-- 头部 -->
+        <div class="header w">
+            <ul class="nav">
+                <li><a href="../index.html">HOME</a></li>
+                <li><a id="nav-now" href="../work.html">WORK</a></li>
+                <li><a href="../note.html">NOTE</a></li>
+                <li><a href="../about.html">ABOUT</a></li>
+            </ul>
+        </div>
+        
+        <!-- 主要内容 -->
+        <div class="main w clearfix">
+            <!-- 左边内容 -->
+            <div class="note-me ml100">
+                <h1>Hola.</h1>
+                <div class="border-out">
+                    <div class="border-in">&nbsp;</div>
+                        <img class="note-head-pic" src="../imgs/logo.png" />
+                </div>
+            </div>
+            
+            <!--右边内容-->
+            <div class="note-cont">
+                <p class="note-date">Oct 5, 2014 <a href="/"><i class="home fa fa-home"></i></a></p>
+                
+                <h1 class="title">Javascript 单例模式</h1>
+                <!--正文开始-->
+                <div class="post">
+                	<p>单例就是保证一个类只有一个实例，实现的方法一般是先判断实例存在与否，如果存在直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。在JavaScript里，实现单例的方式有很多种，其中最简单的一个方式是使用对象字面量的方法，其字面量里可以包含大量的属性和方法。</p>
+                    <p>单例模式主要应用于系统间各种模块的通信协调上。</p>
+                    <h2 class="h2">单例模式实现示例</h2>
+                    <div class="code-block">
+                        <PRE>
+            var Singleton = (function() {
+                
+                var instantiated;
+                
+                //初始化 返回公有方法（可访问私有方法） 和变量
+                function init() {
+                    return {
+                        publicMethod : function() {
+                            privateMethod();
+                        },
+                        publicVar : "this is the public variable."
+                    };
+                }
+
+                //私有变量和方法
+                var privateVar = "private variable";
+                function privateMethod() {
+                    console.log(privateVar);
+                }
+
+                return {
+                    getInstance : function() {
+                        if(!instantiated){
+                            instantiated = init();
+                        }
+                        return instantiated;
+                    }
+                }
+                
+            })();
+            
+            /*调用公有的方法来获取实例:*/
+            Singleton.getInstance().publicMethod();
+                        </PRE>
+                    </div>
+                </div>
+                <!--正文结束-->
+
+                <!-- 多说评论框 start -->
+                <div class="ds-thread" data-thread-key="1" data-title="Javascript 单例模式" data-url="http://angwu.github.io/notes/4-10-2014-JS.html"></div>
+                <!-- 多说评论框 end -->
+                <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+                <script type="text/javascript">
+                    var duoshuoQuery = {short_name:"ang-work"};
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';ds.async = true;
+                        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] 
+                         || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- 多说公共JS代码 end -->
+                
+                <div class="foot">
+                    &copy;WuQiang,2014 &nbsp; Keep Going...<i class="fa fa-paper-plane"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

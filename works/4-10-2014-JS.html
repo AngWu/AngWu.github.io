@@ -37,7 +37,7 @@
                 <h1 class="title">Javascript 小技巧总结</h1>
                 <!--正文开始-->
                 <div class="post">
-                    <h2>一、通用添加事件监听器</h2>
+                    <h2 class="h2">一、通用添加事件监听器</h2>
                     <div class="code-block">
                         <PRE>
             function addEvent(element, type, fn){
@@ -52,7 +52,7 @@
                         </PRE>
                     </div>
 
-                    <h2>二、取消浏览器默认行为</h2>
+                    <h2 class="h2">二、取消浏览器默认行为</h2>
                     <div class="code-block">
                         <PRE>
             //例如取消点击链接的时候导航到href里定义的地址 这个默认行为
@@ -68,7 +68,7 @@
                         </PRE>
                     </div>
 
-                    <h2>三、阻止事件冒泡</h2>
+                    <h2 class="h2">三、阻止事件冒泡</h2>
                     <div class="code-block">
                         <PRE>
             function myStopPropagation() {
@@ -87,7 +87,7 @@
                         addEvent(document.getElementsByTagName('p')[0], 'click', myStopPropagation);
                     </code>
 
-                    <h2>四、事件委托</h2>
+                    <h2 class="h2">四、事件委托</h2>
                     <div class="code-block">
                         <PRE>
             // 例如对很多个 li 绑定相同的事件监听 （ul 的 id="list"）
