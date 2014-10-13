@@ -1,7 +1,4 @@
 AngWu.github.io
 ===============
 
-PersonalPages
-
-My Blog 
-Form ChongQing China
+Hello word!
